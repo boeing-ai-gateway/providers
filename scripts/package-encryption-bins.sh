@@ -6,26 +6,26 @@ BIN_DIR=${BIN_DIR:-./bin}
 cd /obot-providers
 
 if [ ! -e aws-encryption-provider ]; then
-    git clone --depth=1 https://github.com/kubernetes-sigs/aws-encryption-provider
+    git clone --depth=1 https://github.com/obot-platform/aws-encryption-provider
 fi
 cd /obot-providers/aws-encryption-provider
 go build -o "${BIN_DIR}/aws-encryption-provider" cmd/server/main.go
 OBOT_SERVER_VERSIONS="$(
     cat <<VERSIONS
-github.com/kubernetes-sigs/aws-encryption-provider=$(git rev-parse --short HEAD),${OBOT_SERVER_VERSIONS}
+github.com/obot-platform/aws-encryption-provider=$(git rev-parse --short HEAD),${OBOT_SERVER_VERSIONS}
 VERSIONS
 )"
 
 cd /obot-providers
 
 if [ ! -e kubernetes-kms ]; then
-    git clone --depth=1 https://github.com/Azure/kubernetes-kms
+    git clone --depth=1 https://github.com/obot-platform/kubernetes-kms
 fi
 cd /obot-providers/kubernetes-kms
 go build -ldflags="-s -w" -o "${BIN_DIR}/azure-encryption-provider" cmd/server/main.go
 OBOT_SERVER_VERSIONS="$(
     cat <<VERSIONS
-github.com/Azure/kubernetes-kms=$(git rev-parse --short HEAD),${OBOT_SERVER_VERSIONS}
+github.com/obot-platform/kubernetes-kms=$(git rev-parse --short HEAD),${OBOT_SERVER_VERSIONS}
 VERSIONS
 )"
 OBOT_SERVER_VERSIONS="${OBOT_SERVER_VERSIONS%,}"
