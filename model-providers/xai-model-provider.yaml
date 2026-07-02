@@ -1,12 +1,12 @@
 name: "xAI"
-command: "xai-model-provider/bin/obot-provider"
+command: "xai-model-provider/bin/boeing-provider"
 validateArgs:
   - validate
 icon: "/admin/assets/xai-logo.svg"
 description: "Model Provider for xAI"
 link: "https://x.ai/"
 requiredConfigurationParameters:
-  - name: "OBOT_XAI_MODEL_PROVIDER_API_KEY"
+  - name: "BOEING_XAI_MODEL_PROVIDER_API_KEY"
     friendlyName: "API Key"
     description: "xAI API Key"
     sensitive: true

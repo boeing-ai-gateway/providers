@@ -1,12 +1,12 @@
 name: "Ollama"
-command: "ollama-model-provider/bin/obot-provider"
+command: "ollama-model-provider/bin/boeing-provider"
 validateArgs:
   - validate
 icon: "https://ollama.com/public/ollama.png"
 description: "Model provider for models running on Ollama"
 link: "https://ollama.com/"
 requiredConfigurationParameters:
-  - name: "OBOT_OLLAMA_MODEL_PROVIDER_HOST"
+  - name: "BOEING_OLLAMA_MODEL_PROVIDER_HOST"
     friendlyName: "Host"
     description: "Ollama Server Address (e.g. my.ollama.local:11434)"
     sensitive: false

@@ -1,6 +1,6 @@
 # Authentication Providers
 
-This file describes the requirements that a tool must meet in order to function properly as an Obot auth provider.
+This file describes the requirements that a tool must meet in order to function properly as a Boeing auth provider.
 
 ## Requirements
 
@@ -15,8 +15,8 @@ Example from the GitHub auth provider:
 
 ```
 ...
-Metadata: envVars: OBOT_GITHUB_AUTH_PROVIDER_CLIENT_ID,OBOT_GITHUB_AUTH_PROVIDER_CLIENT_SECRET,OBOT_AUTH_PROVIDER_COOKIE_SECRET,OBOT_AUTH_PROVIDER_EMAIL_DOMAINS
-Metadata: optionalEnvVars: OBOT_GITHUB_AUTH_PROVIDER_TEAMS,OBOT_GITHUB_AUTH_PROVIDER_ORG,OBOT_GITHUB_AUTH_PROVIDER_REPO,OBOT_GITHUB_AUTH_PROVIDER_TOKEN,OBOT_GITHUB_AUTH_PROVIDER_ALLOW_USERS
+Metadata: envVars: BOEING_GITHUB_AUTH_PROVIDER_CLIENT_ID,BOEING_GITHUB_AUTH_PROVIDER_CLIENT_SECRET,BOEING_AUTH_PROVIDER_COOKIE_SECRET,BOEING_AUTH_PROVIDER_EMAIL_DOMAINS
+Metadata: optionalEnvVars: BOEING_GITHUB_AUTH_PROVIDER_TEAMS,BOEING_GITHUB_AUTH_PROVIDER_ORG,BOEING_GITHUB_AUTH_PROVIDER_REPO,BOEING_GITHUB_AUTH_PROVIDER_TOKEN,BOEING_GITHUB_AUTH_PROVIDER_ALLOW_USERS
 ...
 ```
 
@@ -27,9 +27,9 @@ OAuth2 authorization code flow.
 
 #### Token Cookie
 
-The auth provider must store the token in a cookie called `obot_access_token`.
-This cookie should be set as `Secure` only if the `OBOT_SERVER_PUBLIC_URL` environment variable starts with `https://`.
-The cookie should be encrypted using the `OBOT_AUTH_PROVIDER_COOKIE_SECRET` environment variable.
+The auth provider must store the token in a cookie called `boeing_access_token`.
+This cookie should be set as `Secure` only if the `BOEING_SERVER_PUBLIC_URL` environment variable starts with `https://`.
+The cookie should be encrypted using the `BOEING_AUTH_PROVIDER_COOKIE_SECRET` environment variable.
 
 #### URL Paths
 
@@ -41,16 +41,16 @@ The auth provider must implement the following URL paths:
 - `/oauth2/callback`: This path should handle the OAuth2 callback from the OAuth2 provider.
   - After exchanging the code for the access token, it should redirect the user to the URL stored in the `rd` query parameter
     from the `/oauth2/start` request.
-- `/oauth2/sign_out`: This path should sign the user out by clearing the `obot_access_token` cookie and redirecting the user to
+- `/oauth2/sign_out`: This path should sign the user out by clearing the `boeing_access_token` cookie and redirecting the user to
   the URL in the `rd` query parameter.
-- `/obot-get-icon-url`: This path should take the user's access token from the `Authorization` header and use it to get
+- `/boeing-get-icon-url`: This path should take the user's access token from the `Authorization` header and use it to get
   the user's profile picture URL. It should return a JSON object with the URL in the `iconURL` field.
   The `Authorization` header will be in the format `Bearer <access token>`.
-- `/obot-get-state`: More details in the next section.
+- `/boeing-get-state`: More details in the next section.
 
-##### Obot-Get-State
+##### Boeing-Get-State
 
-`/obot-get-state` is the path that Obot uses to get information about the user making a request.
+`/boeing-get-state` is the path that Boeing uses to get information about the user making a request.
 Requests to this path will include a JSON body with the following JSONSchema:
 
 ```json
@@ -82,7 +82,7 @@ Requests to this path will include a JSON body with the following JSONSchema:
 }
 ```
 
-This object represents a serialized HTTP request that Obot received from a user.
+This object represents a serialized HTTP request that Boeing received from a user.
 The auth provider must return information about the authenticated user that made this request.
 Under most (if not all) circumstances, the auth provider only needs to look at the cookie header,
 which it can then decrypt and use to get information about the user.
@@ -128,10 +128,10 @@ Here is an example:
 }
 ```
 
-If the `obot_access_token` cookie is not present or is invalid, the auth provider should return a 400 status code.
+If the `boeing_access_token` cookie is not present or is invalid, the auth provider should return a 400 status code.
 
 ## Reference Implementation
 
 The Google auth provider in this repo should be considered the standard reference implementation.
 It follows all the requirements listed above and can be used as a reference when implementing a new auth provider.
-It is recommended to make use of the [OAuth2 Proxy](https://github.com/obot-platform/oauth2-proxy) like the Google and GitHub auth providers do.
+It is recommended to make use of the [OAuth2 Proxy](https://github.com/boeing-ai-gateway/oauth2-proxy) like the Google and GitHub auth providers do.

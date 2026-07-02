@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/obot-platform/providers/openai-model-provider/proxy"
+	"github.com/boeing-ai-gateway/providers/openai-model-provider/proxy"
 )
 
 func cleanURL(endpoint string) string {
@@ -14,14 +14,14 @@ func cleanURL(endpoint string) string {
 }
 
 func main() {
-	apiKey := os.Getenv("OBOT_VLLM_MODEL_PROVIDER_API_KEY")
+	apiKey := os.Getenv("BOEING_VLLM_MODEL_PROVIDER_API_KEY")
 	if apiKey == "" {
-		fmt.Println("OBOT_VLLM_MODEL_PROVIDER_API_KEY environment variable not set, credential must be provided on a per-request basis")
+		fmt.Println("BOEING_VLLM_MODEL_PROVIDER_API_KEY environment variable not set, credential must be provided on a per-request basis")
 	}
 
-	endpoint := os.Getenv("OBOT_VLLM_MODEL_PROVIDER_ENDPOINT")
+	endpoint := os.Getenv("BOEING_VLLM_MODEL_PROVIDER_ENDPOINT")
 	if endpoint == "" {
-		fmt.Println("OBOT_VLLM_MODEL_PROVIDER_ENDPOINT environment variable not set, credential must be provided on a per-request basis")
+		fmt.Println("BOEING_VLLM_MODEL_PROVIDER_ENDPOINT environment variable not set, credential must be provided on a per-request basis")
 	}
 
 	endpoint = cleanURL(endpoint)
@@ -41,8 +41,8 @@ func main() {
 
 	cfg := &proxy.Config{
 		APIKey:                apiKey,
-		PersonalAPIKeyHeader:  "X-Obot-OBOT_VLLM_MODEL_PROVIDER_API_KEY",
-		PersonalBaseURLHeader: "X-Obot-OBOT_VLLM_MODEL_PROVIDER_ENDPOINT",
+		PersonalAPIKeyHeader:  "X-Boeing-BOEING_VLLM_MODEL_PROVIDER_API_KEY",
+		PersonalBaseURLHeader: "X-Boeing-BOEING_VLLM_MODEL_PROVIDER_ENDPOINT",
 		ListenPort:            os.Getenv("PORT"),
 		BaseURL:               strings.TrimSuffix(u.String(), "/v1") + "/v1", // make sure we have /v1 for vLLM
 		RewriteModelsFn:       proxy.RewriteAllModelsWithUsage("llm"),

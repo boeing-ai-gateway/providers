@@ -34,7 +34,7 @@ type Config struct {
 	APIKey string
 
 	// PersonalAPIKeyHeader is used to pull personal API keys that will be used when forwarding the request to the model provider
-	// Should start with `X-Obot-`
+	// Should start with `X-Boeing-`
 	PersonalAPIKeyHeader string
 
 	// PersonalBaseURLHeader is used to pull a personal base URL from the headers of a request to be used when forwarding the request to the model provider.
@@ -123,7 +123,7 @@ func Run(cfg *Config) error {
 		mux.HandleFunc(path, handler)
 	}
 
-	listenHost := os.Getenv("OBOT_PROVIDER_LISTEN_HOST")
+	listenHost := os.Getenv("BOEING_PROVIDER_LISTEN_HOST")
 	if listenHost == "" {
 		listenHost = "127.0.0.1"
 	}

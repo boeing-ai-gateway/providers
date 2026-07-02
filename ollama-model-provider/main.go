@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/obot-platform/providers/openai-model-provider/proxy"
+	"github.com/boeing-ai-gateway/providers/openai-model-provider/proxy"
 )
 
 func cleanHost(host string) string {
@@ -14,7 +14,7 @@ func cleanHost(host string) string {
 }
 
 func main() {
-	host := os.Getenv("OBOT_OLLAMA_MODEL_PROVIDER_HOST")
+	host := os.Getenv("BOEING_OLLAMA_MODEL_PROVIDER_HOST")
 	if host == "" {
 		host = "127.0.0.1:11434"
 	}
@@ -39,7 +39,7 @@ func main() {
 	}
 
 	cfg := &proxy.Config{
-		PersonalBaseURLHeader: "X-Obot-OLLAMA_MODEL_PROVIDER_HOST",
+		PersonalBaseURLHeader: "X-Boeing-OLLAMA_MODEL_PROVIDER_HOST",
 		ListenPort:            os.Getenv("PORT"),
 		BaseURL:               u.String(),
 		RewriteModelsFn:       proxy.RewriteAllModelsWithUsage("llm"),

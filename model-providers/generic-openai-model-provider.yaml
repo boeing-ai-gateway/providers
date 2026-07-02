@@ -1,18 +1,18 @@
 name: "OpenAI Compatible Generic Provider"
-command: "generic-openai-model-provider/bin/obot-provider"
+command: "generic-openai-model-provider/bin/boeing-provider"
 validateArgs:
   - validate
-icon: "/admin/assets/obot_openai_antenna_icon.png"
-iconDark: "/admin/assets/obot_openai_antenna_icon.png"
+icon: "/admin/assets/boeing_openai_antenna_icon.png"
+iconDark: "/admin/assets/boeing_openai_antenna_icon.png"
 description: "Model Provider for generic [OpenAI API compatible](https://platform.openai.com/docs/api-reference/introduction) model providers, like LM-Studio, Ollama, vLLM, etc."
 link: "https://platform.openai.com/docs/api-reference/introduction"
 requiredConfigurationParameters:
-  - name: "OBOT_GENERIC_OPENAI_MODEL_PROVIDER_BASE_URL"
+  - name: "BOEING_GENERIC_OPENAI_MODEL_PROVIDER_BASE_URL"
     friendlyName: "Base URL"
     description: "Base URL for the OpenAI-compatible API, e.g. http://localhost:1234/v1 for LM-Studio."
     sensitive: false
 optionalConfigurationParameters:
-  - name: "OBOT_GENERIC_OPENAI_MODEL_PROVIDER_API_KEY"
+  - name: "BOEING_GENERIC_OPENAI_MODEL_PROVIDER_API_KEY"
     friendlyName: "API Key"
     description: "API Key for the OpenAI-compatible API. Some providers like Ollama don't enforce Authentication, so this is optional."
     sensitive: true

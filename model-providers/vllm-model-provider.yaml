@@ -1,5 +1,5 @@
 name: "vLLM"
-command: "vllm-model-provider/bin/obot-provider"
+command: "vllm-model-provider/bin/boeing-provider"
 validateArgs:
   - validate
 icon: "/admin/assets/vllm-logo.svg"
@@ -7,12 +7,12 @@ iconDark: "/admin/assets/vllm-logo.svg"
 description: "Model Provider for vLLM"
 link: "https://docs.vllm.ai/"
 requiredConfigurationParameters:
-  - name: "OBOT_VLLM_MODEL_PROVIDER_ENDPOINT"
+  - name: "BOEING_VLLM_MODEL_PROVIDER_ENDPOINT"
     friendlyName: "Endpoint"
     description: "Endpoint for the vLLM OpenAI service (eg. http://localhost:8000)"
     sensitive: false
 optionalConfigurationParameters:
-  - name: "OBOT_VLLM_MODEL_PROVIDER_API_KEY"
+  - name: "BOEING_VLLM_MODEL_PROVIDER_API_KEY"
     friendlyName: "API Key"
     description: "VLLM API Key set when starting the vLLM server"
     sensitive: true

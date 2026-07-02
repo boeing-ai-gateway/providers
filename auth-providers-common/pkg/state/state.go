@@ -43,7 +43,7 @@ type SerializableState struct {
 	SetCookies        []string      `json:"setCookies"`
 }
 
-func ObotGetState(p *oauth2proxy.OAuthProxy) http.HandlerFunc {
+func BoeingGetState(p *oauth2proxy.OAuthProxy) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var sr SerializableRequest
 		if err := json.NewDecoder(r.Body).Decode(&sr); err != nil {

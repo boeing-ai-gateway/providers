@@ -14,7 +14,7 @@ import (
 	"os"
 	"path"
 
-	openai "github.com/obot-platform/chat-completion-client"
+	openai "github.com/boeing-ai-gateway/chat-completion-client"
 )
 
 func Run(apiKey, endpointStr, port string) error {
@@ -49,7 +49,7 @@ func Run(apiKey, endpointStr, port string) error {
 		Director: s.proxy,
 	})
 
-	listenHost := os.Getenv("OBOT_PROVIDER_LISTEN_HOST")
+	listenHost := os.Getenv("BOEING_PROVIDER_LISTEN_HOST")
 	if listenHost == "" {
 		listenHost = "127.0.0.1"
 	}

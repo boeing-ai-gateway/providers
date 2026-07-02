@@ -1,5 +1,5 @@
 # Providers
-The home of official Obot providers
+The home of official Boeing providers
 
 ## Issues
-Want to open an issue? Head over to the [Obot repo](https://github.com/obot-platform/obot/issues). Provider related issues will have the `providers` label.
+Want to open an issue? Head over to the [Boeing repo](https://github.com/boeing-ai-gateway/boeing/issues). Provider related issues will have the `providers` label.

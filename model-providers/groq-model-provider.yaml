@@ -1,12 +1,12 @@
 name: "Groq"
-command: "groq-model-provider/bin/obot-provider"
+command: "groq-model-provider/bin/boeing-provider"
 validateArgs:
   - validate
 icon: "/admin/assets/groq_logo.svg"
 description: "Model provider for models running on Groq"
 link: "https://groq.com/"
 requiredConfigurationParameters:
-  - name: "OBOT_GROQ_MODEL_PROVIDER_API_KEY"
+  - name: "BOEING_GROQ_MODEL_PROVIDER_API_KEY"
     friendlyName: "API Key"
     description: "Groq API Key. Can be created and fetched from https://console.groq.com/keys"
     sensitive: true

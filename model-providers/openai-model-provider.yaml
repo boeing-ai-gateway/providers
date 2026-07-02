@@ -1,12 +1,12 @@
 name: "OpenAI"
-command: "openai-model-provider/bin/obot-provider"
+command: "openai-model-provider/bin/boeing-provider"
 validateArgs:
   - validate
 icon: "https://cdn.jsdelivr.net/npm/@phosphor-icons/core@2/assets/duotone/open-ai-logo-duotone.svg"
 description: "Model Provider for OpenAI"
 link: "https://openai.com/"
 requiredConfigurationParameters:
-  - name: "OBOT_OPENAI_MODEL_PROVIDER_API_KEY"
+  - name: "BOEING_OPENAI_MODEL_PROVIDER_API_KEY"
     friendlyName: "API Key"
     description: "OpenAI API Key. Can be created and fetched from https://platform.openai.com/settings/organization/api-keys or https://platform.openai.com/api-keys"
     sensitive: true

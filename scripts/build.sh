@@ -10,6 +10,6 @@ for maingo in $(find -L . -name main.go); do
     (
         cd $(dirname $maingo)
         echo Building $PWD
-        go build -ldflags="-s -w" -o bin/obot-provider .
+        go build -ldflags="-s -w" -o bin/boeing-provider .
     )
 done

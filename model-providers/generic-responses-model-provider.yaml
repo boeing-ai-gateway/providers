@@ -1,18 +1,18 @@
 name: "Responses Compatible Generic Provider"
-command: "generic-responses-model-provider/bin/obot-provider"
+command: "generic-responses-model-provider/bin/boeing-provider"
 validateArgs:
   - validate
-icon: "/admin/assets/obot_openai_antenna_icon.png"
-iconDark: "/admin/assets/obot_openai_antenna_icon.png"
+icon: "/admin/assets/boeing_openai_antenna_icon.png"
+iconDark: "/admin/assets/boeing_openai_antenna_icon.png"
 description: "Model Provider for generic [Responses API compatible](https://www.openresponses.org) model providers, like [Ollama](https://ollama.com/) (`http://127.0.0.1:11434/v1`), LiteLLM, etc."
 link: "https://www.openresponses.org"
 requiredConfigurationParameters:
-  - name: "OBOT_GENERIC_RESPONSES_MODEL_PROVIDER_BASE_URL"
+  - name: "BOEING_GENERIC_RESPONSES_MODEL_PROVIDER_BASE_URL"
     friendlyName: "Base URL"
     description: "Base URL for the OpenAI Responses-compatible API (e.g. http://127.0.0.1:11434/v1 for Ollama)."
     sensitive: false
 optionalConfigurationParameters:
-  - name: "OBOT_GENERIC_RESPONSES_MODEL_PROVIDER_API_KEY"
+  - name: "BOEING_GENERIC_RESPONSES_MODEL_PROVIDER_API_KEY"
     friendlyName: "API Key"
     description: "API Key for the OpenAI Responses-compatible API. Some providers like Ollama don't enforce Authentication, so this is optional."
     sensitive: true

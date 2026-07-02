@@ -1,0 +1,19 @@
+name: "Boeing AI (BCAI)"
+command: "boeing-ai-model-provider/bin/boeing-provider"
+validateArgs:
+  - validate
+icon: "/admin/assets/boeing_ai_icon.png"
+iconDark: "/admin/assets/boeing_ai_icon.png"
+description: "Model Provider for Boeing Conversational AI (BCAI) via UDAL. Each user provides their own UDAL Personal Access Token (PAT) for per-user authentication and audit traceability."
+link: "https://generative-ai.pages.boeing.com/docs/bcai/"
+requiredConfigurationParameters:
+  - name: "BOEING_AI_MODEL_PROVIDER_API_KEY"
+    friendlyName: "UDAL Personal Access Token (PAT)"
+    description: "Your UDAL Personal Access Token (90-day validity). Generate at https://udal.web.boeing.com/udaladmin/profile/developers. Used as 'Authorization: basic <PAT>' for all Boeing AI API calls."
+    sensitive: true
+optionalConfigurationParameters:
+  - name: "BOEING_AI_MODEL_PROVIDER_BASE_URL"
+    friendlyName: "Base URL"
+    description: "UDAL environment base URL. Defaults to https://udal-test.web.boeing.com (test). Use https://udal.web.boeing.com for production."
+    sensitive: false
+dialect: "OpenAIChatCompletions"

@@ -10,7 +10,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/obot-platform/providers/openai-model-provider/api"
+	"github.com/boeing-ai-gateway/providers/openai-model-provider/api"
 )
 
 var thinkingModels = []string{

@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/obot-platform/providers/openai-model-provider/proxy"
+	"github.com/boeing-ai-gateway/providers/openai-model-provider/proxy"
 )
 
 func main() {
 	cfg := &proxy.Config{
-		APIKey:          os.Getenv("OBOT_GENERIC_RESPONSES_MODEL_PROVIDER_API_KEY"), // optional
+		APIKey:          os.Getenv("BOEING_GENERIC_RESPONSES_MODEL_PROVIDER_API_KEY"), // optional
 		ListenPort:      os.Getenv("PORT"),
-		BaseURL:         os.Getenv("OBOT_GENERIC_RESPONSES_MODEL_PROVIDER_BASE_URL"),
+		BaseURL:         os.Getenv("BOEING_GENERIC_RESPONSES_MODEL_PROVIDER_BASE_URL"),
 		RewriteModelsFn: proxy.RewriteAllModelsWithUsage("llm"),
 		Name:            "Generic Responses",
 	}

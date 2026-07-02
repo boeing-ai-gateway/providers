@@ -1,16 +1,16 @@
-module github.com/obot-platform/providers/github-auth-provider
+module github.com/boeing-ai-gateway/providers/github-auth-provider
 
 go 1.26.4
 
 replace (
-	github.com/oauth2-proxy/oauth2-proxy/v7 => github.com/obot-platform/oauth2-proxy/v7 v7.0.0-20260410175959-7ef5428d1af3
-	github.com/obot-platform/providers/auth-providers-common => ../auth-providers-common
+	github.com/oauth2-proxy/oauth2-proxy/v7 => github.com/boeing-ai-gateway/oauth2-proxy/v7 v7.0.0-20260410175959-7ef5428d1af3
+	github.com/boeing-ai-gateway/providers/auth-providers-common => ../auth-providers-common
 )
 
 require (
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/oauth2-proxy/oauth2-proxy/v7 v7.8.1
-	github.com/obot-platform/providers/auth-providers-common v0.0.0-20241008222508-3c6174b443e7
+	github.com/boeing-ai-gateway/providers/auth-providers-common v0.0.0-20241008222508-3c6174b443e7
 )
 
 require (

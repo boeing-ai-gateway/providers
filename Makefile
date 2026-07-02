@@ -12,4 +12,4 @@ package-encryption-bins:
 	./scripts/package-encryption-bins.sh
 
 docker-build:
-	docker build -t obot-platform/providers:latest --target providers .
+	docker build -t boeing-platform/providers:latest --target providers .

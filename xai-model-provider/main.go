@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/obot-platform/providers/openai-model-provider/proxy"
+	"github.com/boeing-ai-gateway/providers/openai-model-provider/proxy"
 )
 
 // RewriteGrokModels marks only Grok models as LLMs
@@ -23,14 +23,14 @@ func RewriteGrokModels(resp *http.Response) error {
 }
 
 func main() {
-	apiKey := os.Getenv("OBOT_XAI_MODEL_PROVIDER_API_KEY")
+	apiKey := os.Getenv("BOEING_XAI_MODEL_PROVIDER_API_KEY")
 	if apiKey == "" {
-		fmt.Println("OBOT_XAI_MODEL_PROVIDER_API_KEY is not set, credential must be provided on a per-request basis")
+		fmt.Println("BOEING_XAI_MODEL_PROVIDER_API_KEY is not set, credential must be provided on a per-request basis")
 	}
 
 	cfg := &proxy.Config{
 		APIKey:               apiKey,
-		PersonalAPIKeyHeader: "X-Obot-OBOT_XAI_MODEL_PROVIDER_API_KEY",
+		PersonalAPIKeyHeader: "X-Boeing-BOEING_XAI_MODEL_PROVIDER_API_KEY",
 		ListenPort:           os.Getenv("PORT"),
 		BaseURL:              "https://api.x.ai/v1",
 		RewriteModelsFn:      RewriteGrokModels,

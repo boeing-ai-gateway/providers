@@ -1,7 +1,7 @@
-module github.com/obot-platform/providers/groq-model-provider
+module github.com/boeing-ai-gateway/providers/groq-model-provider
 
 go 1.26.4
 
-replace github.com/obot-platform/providers/openai-model-provider => ../openai-model-provider
+replace github.com/boeing-ai-gateway/providers/openai-model-provider => ../openai-model-provider
 
-require github.com/obot-platform/providers/openai-model-provider v0.0.0
+require github.com/boeing-ai-gateway/providers/openai-model-provider v0.0.0

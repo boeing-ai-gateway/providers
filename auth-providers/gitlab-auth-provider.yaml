@@ -1,0 +1,46 @@
+name: "GitLab"
+command: "gitlab-auth-provider/bin/boeing-provider.exe"
+icon: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/gitlab.svg"
+description: "Auth provider for GitLab"
+link: "https://gitlab.com/"
+requiredConfigurationParameters:
+  - name: "BOEING_GITLAB_AUTH_PROVIDER_CLIENT_ID"
+    friendlyName: "Application ID"
+    description: "Application ID for your GitLab OAuth app. Can be found in GitLab Admin > Applications or User Settings > Applications"
+    sensitive: false
+  - name: "BOEING_GITLAB_AUTH_PROVIDER_CLIENT_SECRET"
+    friendlyName: "Application Secret"
+    description: "Application secret for your GitLab OAuth app. Can be found in GitLab Admin > Applications or User Settings > Applications"
+    sensitive: true
+  - name: "BOEING_AUTH_PROVIDER_COOKIE_SECRET"
+    friendlyName: "Cookie Secret"
+    description: "Secret used to encrypt cookies. Must be a random string of length 16, 24, or 32."
+    sensitive: true
+    hidden: true
+  - name: "BOEING_AUTH_PROVIDER_EMAIL_DOMAINS"
+    friendlyName: "Allowed E-Mail Domains"
+    description: "A list of email domains that are allowed to authenticate with this provider. * is a special value that allows all domains."
+    sensitive: false
+optionalConfigurationParameters:
+  - name: "BOEING_GITLAB_AUTH_PROVIDER_URL"
+    friendlyName: "GitLab URL"
+    description: "URL of your GitLab instance (e.g. https://gitlab.example.com). Leave empty for gitlab.com."
+    sensitive: false
+  - name: "BOEING_AUTH_PROVIDER_POSTGRES_CONNECTION_DSN"
+    friendlyName: "PostgreSQL connection string (DSN)"
+    description: "The connection string for a PostgreSQL database to use for session storage. If unset, cookies will be used for session storage instead."
+    sensitive: true
+    hidden: true
+  - name: "BOEING_AUTH_PROVIDER_TOKEN_REFRESH_DURATION"
+    friendlyName: "Token Refresh Duration"
+    description: "Time to wait before attempting to refresh auth tokens. Should be in a format like 1h1m1s. Default: 1h"
+    sensitive: false
+  - name: "BOEING_GITLAB_AUTH_PROVIDER_GROUP"
+    friendlyName: "Allowed GitLab Group"
+    description: "Restrict logins to members of this GitLab group (full path, e.g. my-org/my-group)."
+    sensitive: false
+  - name: "BOEING_AUTH_PROVIDER_ENABLE_LOGGING"
+    friendlyName: "Enable Logging"
+    description: "Set to true to enable request, auth, and standard logging for the auth provider. Default: false"
+    sensitive: false
+postgresTablePrefix: "gitlab_"

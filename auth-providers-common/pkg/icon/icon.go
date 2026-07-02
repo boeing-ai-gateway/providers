@@ -10,7 +10,7 @@ import (
 
 type Fetcher func(context.Context, string) (string, error)
 
-func ObotGetIconURL(iconFetcher Fetcher) http.HandlerFunc {
+func BoeingGetIconURL(iconFetcher Fetcher) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		auth := r.Header.Get("Authorization")
 		if auth == "" {

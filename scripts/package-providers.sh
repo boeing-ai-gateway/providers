@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e -x -o pipefail
 
-REPO=github.com/obot-platform/providers
-REPO_DIR=/obot-providers/providers
+REPO=github.com/boeing-ai-gateway/providers
+REPO_DIR=/boeing-providers/providers
 REPO_NAME=$(basename $REPO_DIR)
 
 if [[ -x "${REPO_DIR}/scripts/build.sh" ]]; then
@@ -16,15 +16,15 @@ else
     echo "No build script found in ${REPO}"
 fi
 
-OBOT_SERVER_VERSIONS="$(
+BOEING_SERVER_VERSIONS="$(
     cat <<VERSIONS
-${REPO}=$(cd /obot-providers/providers && git rev-parse --short HEAD),${OBOT_SERVER_VERSIONS}
+${REPO}=$(cd /boeing-providers/providers && git rev-parse --short HEAD),${BOEING_SERVER_VERSIONS}
 VERSIONS
 )"
-OBOT_SERVER_VERSIONS="${OBOT_SERVER_VERSIONS%,}"
+BOEING_SERVER_VERSIONS="${BOEING_SERVER_VERSIONS%,}"
 
-cd /obot-providers
+cd /boeing-providers
 cat <<EOF >.envrc.providers.${REPO_NAME}
-export OBOT_SERVER_PROVIDER_REGISTRIES="/obot-providers/providers"
-export OBOT_SERVER_VERSIONS="${OBOT_SERVER_VERSIONS}"
+export BOEING_SERVER_PROVIDER_REGISTRIES="/boeing-providers/providers"
+export BOEING_SERVER_VERSIONS="${BOEING_SERVER_VERSIONS}"
 EOF

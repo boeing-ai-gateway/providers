@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/obot-platform/providers/openai-model-provider/api"
+	"github.com/boeing-ai-gateway/providers/openai-model-provider/api"
 )
 
 func DefaultRewriteModelsResponse(resp *http.Response) error {
